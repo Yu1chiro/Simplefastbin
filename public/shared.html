@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Article</title>
+  <link rel="shortcut icon" href="https://easyfaster-mailer.vercel.app/ico.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    #article-content {
+      line-height: 1.6;
+    }
+    #article-content img {
+      max-width: 100%;
+    }
+    /* SweetAlert Toast Styles */
+    .swal2-toast {
+      padding: 0.5em 1em !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+      border-radius: 0.375rem !important;
+    }
+    .swal2-toast .swal2-title {
+      font-size: 1em !important;
+      margin: 0.5em 1em !important;
+    }
+    .swal2-toast .swal2-html-container {
+      margin: 0.5em 1em !important;
+      font-size: 0.875em !important;
+    }
+    .button-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="p-4 border-b border-gray-200 flex justify-between items-center">
+        <h1  id="article-title" class="text-xl font-bold text-gray-800"></h1>
+      </div>
+      
+      <div class="p-4">
+        <div id="article-content" class="prose max-w-none text-justify"></div>
+    </div>
+</div>
+<div class="button-group mt-5">
+    <button id="copy-link-btn" class="bg-green-700 text-white px-4 py-2 rounded hover:bg-gray-600">
+      <i class="fas fa-link mr-2"></i>Copy Link
+    </button>
+    <button id="copy-content-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+      <i class="fas fa-copy mr-2"></i>Copy Article
+    </button>
+    <button id="delete-btn" class="hidden bg-red-600 text-white px-4 py-2 rounded hover:bg-red-6700">
+      Delete
+    </button>
+  </div>
+  </div>
+  <footer class="py-4 text-center text-gray-800 text-xs">
+    Build with Hera ☕
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script>
+    // Initialize Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCNM6jFlIQJWn49pawqIulqW67FD8OSK6U",
+      authDomain: "bot-project-8d259.firebaseapp.com",
+      databaseURL: "https://bot-project-8d259-default-rtdb.firebaseio.com",
+      projectId: "bot-project-8d259",
+      storageBucket: "bot-project-8d259.firebasestorage.app",
+      messagingSenderId: "289445545944",
+      appId: "1:289445545944:web:3356b5213b45780ef394ad",
+      measurementId: "G-L1PQXGH3K3"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const database = firebase.database();
+    const Swal = window.Swal;
+
+    document.addEventListener('DOMContentLoaded', () => {
+  const articleContent = document.getElementById('article-content');
+  const articleTitle = document.getElementById('article-title');
+  const copyContentBtn = document.getElementById('copy-content-btn');
+  const copyLinkBtn = document.getElementById('copy-link-btn');
+  const deleteBtn = document.getElementById('delete-btn');
+  
+  // Get article ID from URL
+  const pathParts = window.location.pathname.split('/');
+  const articleId = pathParts[pathParts.length - 1];
+  const currentUrl = window.location.href;
+  
+  let articleHasPin = false;
+
+  database.ref(`Articles/${articleId}`).once('value')
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        const article = snapshot.val();
+        const now = Date.now();
+        
+        if (article.createdAt && (now - article.createdAt) > 24 * 60 * 60 * 1000) {
+          database.ref(`Articles/${articleId}`).remove()
+            .then(() => {
+              Swal.fire({
+                icon: 'error',
+                title: 'Artikel Kadaluarsa',
+                text: 'Konten ini hanya tersedia selama 24 jam',
+                confirmButtonText: 'Kembali ke Beranda'
+              }).then(() => {
+                window.location.href = '/';
+              });
+            });
+          return;
+        }
+        
+        articleTitle.textContent = article.title || 'Untitled';
+        articleContent.innerHTML = article.content;
+        
+        // Check if article has PIN
+        if (article.pin) {
+          articleHasPin = true;
+          deleteBtn.classList.remove('hidden');
+        }
+        
+        const timeLeft = 24 * 60 * 60 * 1000 - (now - article.createdAt);
+        if (timeLeft > 0) {
+          setTimeout(() => {
+            database.ref(`Articles/${articleId}`).remove()
+              .then(() => console.log(`Artikel ${articleId} dihapus otomatis`));
+          }, timeLeft);
+        }
+      } else {
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'error',
+          title: 'Artikel Tidak Ditemukan',
+          text: 'Artikel yang diminta tidak ada di database',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          background: '#fef2f2',
+          iconColor: '#dc2626'
+        }).then(() => {
+          window.location.href = '/';
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error loading article:', error);
+      Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error',
+        text: 'Gagal memuat artikel',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        background: '#fef2f2',
+        iconColor: '#dc2626'
+      });
+    });
+
+  // Delete button handler
+  deleteBtn.addEventListener('click', () => {
+    if (articleHasPin) {
+      Swal.fire({
+        title: 'Enter PIN to Delete',
+        input: 'password',
+        inputAttributes: {
+          autocapitalize: 'off',
+          autocorrect: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Delete',
+        showLoaderOnConfirm: true,
+        preConfirm: (pin) => {
+          return fetch(`/api/article/${articleId}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ pin })
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(response.statusText);
+            }
+            return response.json();
+          })
+          .catch(error => {
+            Swal.showValidationMessage(
+              `Delete failed: ${error}`
+            );
+          });
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'Your article has been deleted.',
+            icon: 'success'
+          }).then(() => {
+            window.location.href = '/';
+          });
+        }
+      });
+    } else {
+      // If no PIN is required (shouldn't happen as button is hidden)
+      fetch(`/api/article/${articleId}`, {
+        method: 'DELETE'
+      })
+      .then(response => {
+        if (response.ok) {
+          Swal.fire({
+            title: 'Deleted!',
+            text: 'Your article has been deleted.',
+            icon: 'success'
+          }).then(() => {
+            window.location.href = '/';
+          });
+        }
+      });
+    }
+  });     
+      // Copy article content button handler
+      copyContentBtn.addEventListener('click', () => {
+        const range = document.createRange();
+        range.selectNode(articleContent);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+        document.execCommand('copy');
+        window.getSelection().removeAllRanges();
+        
+        Swal.fire({
+          toast: true,
+          position: 'top-end',
+          icon: 'success',
+          title: 'Article copied!',
+          showConfirmButton: false,
+          timer: 1500,
+          timerProgressBar: true,
+          background: '#f0fdf4',
+          iconColor: '#16a34a'
+        });
+      });
+      
+      // Copy link button handler
+      copyLinkBtn.addEventListener('click', () => {
+        navigator.clipboard.writeText(currentUrl).then(() => {
+            Swal.fire({
+    toast: true,
+    position: 'top-end',
+    icon: 'success',
+    title: 'Link berhasil disalin!',
+    showConfirmButton: false,
+    timer: 1000,
+    timerProgressBar: true,
+    background: '#f0fdf4',
+    iconColor: '#16a34a'
+  }).then(() => {
+    window.location.href = `https://wa.me/`;
+          });
+        }).catch(err => {
+          console.error('Failed to copy link: ', err);
+          Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'error',
+            title: 'Failed to copy link',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            background: '#fef2f2',
+            iconColor: '#dc2626'
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

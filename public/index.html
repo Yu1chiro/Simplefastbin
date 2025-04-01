@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Pastebin</title>
+  <link rel="shortcut icon" href="https://easyfaster-mailer.vercel.app/ico.png" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+ <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-gray-100 min-h-screen">
+  <div class="container mx-auto px-4 py-8">
+    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <div class="p-4 border-b border-gray-200">
+        <div class="flex items-center space-x-4" bis_skin_checked="1">
+            <!-- Space untuk logo/foto -->
+            <div class="w-[50px] h-auto rounded-lg flex items-center justify-center" bis_skin_checked="1">
+                <!-- Ganti dengan tag img jika ingin menggunakan foto -->
+                <img src="https://easyfaster-mailer.vercel.app/ico.png" class="rounded-full" alt="">
+            </div>
+            <!-- Nama Anda -->
+            <h1 class="text-2xl font-bold mb-3 text-gray-800">Welcome to Simfastbin</h1>
+        </div>
+        <p class="text-md">Simfastbin adalah solusi tercepat untuk membagikan tulisan/artikel anda kepada teman tanpa ribet. Dengan antarmuka yang sederhana, Anda bisa langsung menulis dan mendapatkan link untuk dibagikan dalam hitungan detik. Tidak perlu registrasi, tidak perlu login, cukup tulis dan bagikan! Sempurna untuk berbagi kode, catatan kuliah, ide tulisan, atau dokumen penting yang perlu diakses cepat oleh tim Anda.</p>
+
+      </div>
+      
+      <div id="editor-toolbar" class="p-2 border-b border-gray-200 bg-gray-50">
+        <div class="flex flex-wrap gap-2">
+          <button data-command="bold" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-bold"></i>
+          </button>
+          <button data-command="italic" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-italic"></i>
+          </button>
+          <button data-command="underline" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-underline"></i>
+          </button>
+          <div class="relative">
+            <button data-command="foreColor" class="p-2 rounded hover:bg-gray-200 flex items-center">
+              <i class="fas fa-palette mr-1"></i>
+              <input type="color" id="text-color" class="w-6 h-6 opacity-0 absolute">
+            </button>
+          </div>
+          <button data-command="hiliteColor" class="p-2 rounded hover:bg-gray-200 flex items-center">
+            <i class="fas fa-highlighter mr-1"></i>
+            <input type="color" id="highlight-color" class="w-6 h-6 opacity-0 absolute">
+          </button>
+          <button data-command="insertUnorderedList" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-list-ul"></i>
+          </button>
+          <button data-command="insertOrderedList" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-list-ol"></i>
+          </button>
+          <button data-command="createLink" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-link"></i>
+          </button>
+          <!-- Text Alignment Buttons -->
+          <button data-command="justifyLeft" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-align-left"></i>
+          </button>
+          <button data-command="justifyCenter" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-align-center"></i>
+          </button>
+          <button data-command="justifyRight" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-align-right"></i>
+          </button>
+          <button data-command="justifyFull" class="p-2 rounded hover:bg-gray-200">
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div id="editor-container" class="p-4">
+        <div id="title-input" class="mb-4">
+          <input type="text" id="article-title" placeholder="Article title" class="w-full p-2 border border-gray-300 rounded">
+        </div>
+        <div id="editor" contenteditable="true" class="min-h-[500px] p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Type your content here..."></div>
+      </div>
+      <div class="p-4">
+        <input type="password" inputmode="numeric" pattern="[0-9]*" id="article-pin" placeholder="Set deletion PIN (optional)" class="w-64 p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent rounded mr-2">
+        <span class="text-sm text-gray-500 flex mt-3">PIN will be required to delete this article</span>
+      </div>
+      <div class="p-4 border-t border-gray-200 flex justify-end">
+        <button id="save-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+          <i class="fas fa-save mr-2"></i>Save
+        </button>
+      </div>
+    </div>
+  </div>
+  <footer class="py-4 text-center text-gray-800 text-xs">
+    Build with Hera ☕
+  </footer>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
