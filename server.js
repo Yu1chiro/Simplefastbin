@@ -58,7 +58,7 @@ app.post('/api/save', (req, res) => {
       res.json({ 
         success: true,
         id: articleRef.key,
-        url: `http://localhost:3000/shared/${articleRef.key}`,
+        url: `/shared/${articleRef.key}`,
         expiredAt: expiredAt,
         hasPin: !!pin // Indicate if PIN was set
       });
