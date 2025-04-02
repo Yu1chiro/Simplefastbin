@@ -253,22 +253,38 @@
       // Copy link button handler
       copyLinkBtn.addEventListener('click', () => {
         navigator.clipboard.writeText(currentUrl).then(() => {
+        Swal.fire({
+            toast: true,
+            position: 'top-end',
+            icon: 'success',
+            title: 'Link berhasil disalin!',
+            showConfirmButton: false,
+            timer: 1000,
+            timerProgressBar: true,
+            background: '#f0fdf4',
+            iconColor: '#16a34a'
+        }).then(() => {
             Swal.fire({
-    toast: true,
-    position: 'top-end',
-    icon: 'success',
-    title: 'Link berhasil disalin!',
-    showConfirmButton: false,
-    timer: 1000,
-    timerProgressBar: true,
-    background: '#f0fdf4',
-    iconColor: '#16a34a'
-  }).then(() => {
-    window.location.href = `https://wa.me/`;
-          });
-        }).catch(err => {
-          console.error('Failed to copy link: ', err);
-          Swal.fire({
+                title: 'Scan and support me on Saweria',
+                imageUrl: '/support/saweria_me.png',
+                imageAlt: 'Saweria Support Barcode',
+                showConfirmButton: true,
+                showDenyButton: true,  // Added for the second button
+                confirmButtonText: 'Support',
+                denyButtonText: 'Close',
+                background: '#ffffff',
+                reverseButtons: true  // Optional: puts Support button first
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to Saweria when Support button is clicked
+                    window.location.href = 'https://saweria.co/yuichirohera'; // Replace with your Saweria URL
+                }
+                // No action needed for Close button (default dismiss)
+            });
+        });
+    }).catch(err => {
+        console.error('Failed to copy link: ', err);
+        Swal.fire({
             toast: true,
             position: 'top-end',
             icon: 'error',
@@ -278,8 +294,8 @@
             timerProgressBar: true,
             background: '#fef2f2',
             iconColor: '#dc2626'
-          });
         });
+    });
       });
     });
   </script>
