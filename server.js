@@ -105,6 +105,10 @@ app.get('/shared/:id', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+// Home route
+app.get('/documentation', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'background.html'));
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
