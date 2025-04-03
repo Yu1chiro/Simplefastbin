@@ -49,15 +49,7 @@
             <i class="fas fa-highlighter mr-1"></i>
             <input type="color" id="highlight-color" class="w-6 h-6 opacity-0 absolute">
           </button>
-          <button data-command="insertUnorderedList" class="p-2 rounded hover:bg-gray-200">
-            <i class="fas fa-list-ul"></i>
-          </button>
-          <button data-command="insertOrderedList" class="p-2 rounded hover:bg-gray-200">
-            <i class="fas fa-list-ol"></i>
-          </button>
-          <button data-command="createLink" class="p-2 rounded hover:bg-gray-200">
-            <i class="fas fa-link"></i>
-          </button>
+      
           <!-- Text Alignment Buttons -->
           <button data-command="justifyLeft" class="p-2 rounded hover:bg-gray-200">
             <i class="fas fa-align-left"></i>
@@ -75,15 +67,21 @@
       </div>
       
       <div id="editor-container" class="p-4">
+        <label for="label" class="text-lg text-gray-600 font-semibold mb-3 flex">Title Article/Notes</label>
         <div id="title-input" class="mb-4">
-          <input type="text" id="article-title" placeholder="Article title" class="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <input autocomplete="off" type="text" id="article-title" placeholder="Your title/notes" class="w-full p-2 border-b border-gray-600 rounded focus:outline-none  focus:border-b-2 focus:border-blue-500">
         </div>
-        <div id="editor" contenteditable="true" class="min-h-[500px] p-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Type your content here..."></div>
+        <label for="label" class="text-lg text-gray-600 font-semibold mb-3 flex">Article/Notes</label>
+        <div id="editor" contenteditable="true" placeholder="Your article text" class="min-h-[500px] p-4 border border-gray-600 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Type your content here..."></div>
       </div>
       <div class="p-4">
-        <input type="password" inputmode="numeric" pattern="[0-9]*" id="article-pin" placeholder="Set deletion PIN (optional)" class="w-64 p-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent rounded mr-2">
-        <span class="text-sm text-gray-500 flex mt-3">PIN will be required to delete this article</span>
+        <label for="choose-password" class="text-lg text-gray-600 font-semibold mb-3 flex">🔢Use your pin for deleting in view mode</label>
+        <input autocomplete="off" type="password" inputmode="numeric" pattern="[0-9]*" id="article-pin" placeholder="Set deletion PIN (optional)" class="w-64 p-2 border-b border-gray-600 focus:outline-none focus:border-b-2 focus:border-blue-500 rounded mr-2">
       </div>
+      <div class="p-4">
+        <label for="choose-password" class="text-lg text-gray-600 font-semibold mb-3 flex">🔐Choose your password for protect</label>
+        <input autocomplete="off" type="password"  id="Protect-password" placeholder="Your password (opsional)" class="w-64 p-2 border-b border-gray-600 focus:outline-none focus:border-b-2 focus:border-blue-500 rounded mr-2">
+    </div>
       <div class="p-4 border-t border-gray-200 flex justify-end">
         <button id="save-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
           <i class="fas fa-save mr-2"></i>Save

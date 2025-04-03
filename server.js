@@ -4,8 +4,11 @@ const admin = require('firebase-admin');
 const path = require('path');
 const cors = require('cors');
 
+
 const app = express();
-app.use(cors());
+app.use(cors({
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+}));
 const port = 3000;
 
 // Initialize Firebase Admin
@@ -34,9 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 // API endpoint to save articles
-// API endpoint to save articles (updated with PIN)
 app.post('/api/save', (req, res) => {
-    const { content, title = 'Untitled', pin } = req.body;
+    const { content, title = 'Untitled', pin, protectPassword } = req.body;
     const articleRef = database.ref('Articles').push();
     
     const expiredAt = Date.now() + 24 * 60 * 60 * 1000;
@@ -53,6 +55,12 @@ app.post('/api/save', (req, res) => {
       articleData.pin = pin;
     }
     
+    // Add protect password if provided
+    if (protectPassword) {
+      articleData.protectPassword = protectPassword;
+      articleData.isProtected = true;
+    }
+    
     articleRef.set(articleData)
     .then(() => {
       res.json({ 
@@ -60,14 +68,42 @@ app.post('/api/save', (req, res) => {
         id: articleRef.key,
         url: `/shared/${articleRef.key}`,
         expiredAt: expiredAt,
-        hasPin: !!pin // Indicate if PIN was set
+        hasPin: !!pin,
+        isProtected: !!protectPassword
       });
     })
     .catch(error => {
       res.status(500).json({ success: false, error: error.message });
     });
 });
-
+// API endpoint to delete articles with PIN verification
+app.post('/api/article/:id/verify', (req, res) => {
+    const { password } = req.body;
+    
+    database.ref(`Articles/${req.params.id}`).once('value')
+    .then(snapshot => {
+        if (!snapshot.exists()) {
+            return res.status(404).json({ success: false, error: 'Article not found' });
+        }
+        
+        const article = snapshot.val();
+        
+        // Check if article has protect password and if it matches
+        if (article.protectPassword && article.protectPassword !== password) {
+            return res.status(401).json({ success: false, error: 'Invalid password' });
+        }
+        
+        // If password matches or no password required
+        res.json({ 
+          success: true,
+          content: article.content,
+          title: article.title
+        });
+    })
+    .catch(error => {
+        res.status(500).json({ success: false, error: error.message });
+    });
+});
 // API endpoint to delete articles with PIN verification
 app.delete('/api/article/:id', (req, res) => {
     const { pin } = req.body;
@@ -82,7 +118,7 @@ app.delete('/api/article/:id', (req, res) => {
         
         // Check if article has PIN and if it matches
         if (article.pin && article.pin !== pin) {
-            return res.status(401).json({ success: false, error: 'Invalid PIN' });
+            return res.status(401).json({ success: false, error: 'Your PIN Incorrect!' });
         }
         
         // If no PIN or PIN matches, delete the article
@@ -95,7 +131,6 @@ app.delete('/api/article/:id', (req, res) => {
         res.status(500).json({ success: false, error: error.message });
     });
 });
-
 // Shared route
 app.get('/shared/:id', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'shared.html'));

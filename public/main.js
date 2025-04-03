@@ -12,207 +12,203 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-function _0x2aef() {
-  const _0x253ce6 = [
-    "4446DKIRqU",
-    "text-color",
-    "location",
-    "<i\x20class=\x22fas\x20fa-save\x20mr-2\x22></i>Save",
-    "7596EilUar",
-    "foreColor",
-    "target",
-    "querySelectorAll",
-    "then",
-    "success",
-    "input",
-    "getElementById",
-    "[data-command^=\x22justify\x22]",
+function _0x31f4() {
+  const _0x35b656 = [
+    "4045164HJHyXE",
     "stringify",
-    "#editor-toolbar\x20button[data-command]",
-    "json",
-    "addEventListener",
-    "71358iCcJNr",
-    "remove",
-    "#16a34a",
-    "getAttribute",
-    "top-end",
-    "Save\x20Confirmed!",
-    "10AEjtPZ",
-    "catch",
-    "trim",
-    "toggle",
-    "innerHTML",
-    "bg-blue-100",
-    "Error\x20saving\x20article:",
-    "application/json",
-    "message",
-    "contentEditable",
-    "150159iKFpEJ",
-    "32YhRvVY",
     "value",
-    "highlight-color",
-    "fire",
-    "title-input",
-    "hidden",
-    "focus",
-    "error",
-    "hiliteColor",
-    "href",
-    "<i\x20class=\x22fas\x20fa-spinner\x20fa-spin\x20mr-2\x22></i>Saving...",
-    "21JGcCMt",
-    "2484867wfLUZu",
-    "325323aYThAB",
-    "Swal",
-    "forEach",
-    "execCommand",
+    "remove",
+    "catch",
     "Please\x20enter\x20some\x20content!",
-    "data-command",
     "classList",
-    "disabled",
-    "/api/save",
-    "7992TOuSSR",
-    "article-title",
-    "justify",
-    "DOMContentLoaded",
-    "Save\x20failed",
-    "save-btn",
-    "170ntVeXt",
-    "93814psyXOL",
-    "140vKwjsw",
-    "Failed\x20to\x20save",
-    "finally",
+    "editor",
+    "[data-command^=\x22justify\x22]",
+    "#f0fdf4",
+    "highlight-color",
+    "getElementById",
+    "top-end",
+    "hidden",
+    "success",
     "click",
+    "data-command",
+    "Error\x20saving\x20article:",
+    "justify",
     "url",
+    "href",
+    "11430433cRZGor",
+    "384716amuiVD",
+    "querySelectorAll",
+    "trim",
+    "1048698XbSfYO",
+    "title-input",
+    "article-pin",
+    "disabled",
+    "save-btn",
+    "fire",
+    "Save\x20Confirmed!",
+    "/api/save",
+    "addEventListener",
+    "input",
+    "1557335fcyaWa",
+    "foreColor",
+    "then",
+    "target",
+    "#editor-toolbar\x20button[data-command]",
+    "innerHTML",
+    "#fef2f2",
+    "823828afPGEg",
     "#dc2626",
+    "<i\x20class=\x22fas\x20fa-spinner\x20fa-spin\x20mr-2\x22></i>Saving...",
+    "#16a34a",
+    "DOMContentLoaded",
+    "POST",
+    "8Jxcgre",
+    "Protect-password",
+    "hiliteColor",
+    "error",
+    "message",
+    "execCommand",
+    "contentEditable",
+    "2531404AnACXZ",
+    "getAttribute",
+    "article-title",
+    "bg-blue-100",
+    "forEach",
+    "text-color",
+    "Save\x20failed",
   ];
-  _0x2aef = function () {
-    return _0x253ce6;
+  _0x31f4 = function () {
+    return _0x35b656;
   };
-  return _0x2aef();
+  return _0x31f4();
 }
-const _0x5dae07 = _0x5d5a;
-function _0x5d5a(_0x1b5a62, _0x3417f6) {
-  const _0x2aefb0 = _0x2aef();
+const _0x117238 = _0x301a;
+function _0x301a(_0x50dabe, _0x42d080) {
+  const _0x31f437 = _0x31f4();
   return (
-    (_0x5d5a = function (_0x5d5a00, _0x3f15ad) {
-      _0x5d5a00 = _0x5d5a00 - 0x189;
-      let _0x41cf4d = _0x2aefb0[_0x5d5a00];
-      return _0x41cf4d;
+    (_0x301a = function (_0x301ad9, _0x10f49d) {
+      _0x301ad9 = _0x301ad9 - 0x1c2;
+      let _0x24b538 = _0x31f437[_0x301ad9];
+      return _0x24b538;
     }),
-    _0x5d5a(_0x1b5a62, _0x3417f6)
+    _0x301a(_0x50dabe, _0x42d080)
   );
 }
-(function (_0x49c206, _0x161c13) {
-  const _0x1257e2 = _0x5d5a,
-    _0x3d5037 = _0x49c206();
+(function (_0x244493, _0x550c3c) {
+  const _0x3edb01 = _0x301a,
+    _0x470527 = _0x244493();
   while (!![]) {
     try {
-      const _0x22a59a =
-        -parseInt(_0x1257e2(0x1ab)) / 0x1 +
-        (-parseInt(_0x1257e2(0x1c9)) / 0x2) * (-parseInt(_0x1257e2(0x1b7)) / 0x3) +
-        (-parseInt(_0x1257e2(0x1c2)) / 0x4) * (parseInt(_0x1257e2(0x1c8)) / 0x5) +
-        (parseInt(_0x1257e2(0x19b)) / 0x6) * (parseInt(_0x1257e2(0x1ca)) / 0x7) +
-        (parseInt(_0x1257e2(0x1ac)) / 0x8) * (-parseInt(_0x1257e2(0x1b9)) / 0x9) +
-        (-parseInt(_0x1257e2(0x1a1)) / 0xa) * (parseInt(_0x1257e2(0x1b8)) / 0xb) +
-        (parseInt(_0x1257e2(0x18e)) / 0xc) * (parseInt(_0x1257e2(0x18a)) / 0xd);
-      if (_0x22a59a === _0x161c13) break;
-      else _0x3d5037["push"](_0x3d5037["shift"]());
-    } catch (_0x465476) {
-      _0x3d5037["push"](_0x3d5037["shift"]());
+      const _0xeabd42 =
+        -parseInt(_0x3edb01(0x1c3)) / 0x1 +
+        parseInt(_0x3edb01(0x1d0)) / 0x2 +
+        -parseInt(_0x3edb01(0x1f0)) / 0x3 +
+        -parseInt(_0x3edb01(0x1ed)) / 0x4 +
+        -parseInt(_0x3edb01(0x1fa)) / 0x5 +
+        -parseInt(_0x3edb01(0x1d7)) / 0x6 +
+        (parseInt(_0x3edb01(0x1ec)) / 0x7) * (parseInt(_0x3edb01(0x1c9)) / 0x8);
+      if (_0xeabd42 === _0x550c3c) break;
+      else _0x470527["push"](_0x470527["shift"]());
+    } catch (_0x13b6e6) {
+      _0x470527["push"](_0x470527["shift"]());
     }
   }
-})(_0x2aef, 0x2f647),
-  document[_0x5dae07(0x19a)](_0x5dae07(0x1c5), () => {
-    const _0x31646a = _0x5dae07,
-      _0x29f56b = document[_0x31646a(0x195)]("editor"),
-      _0x342c74 = document[_0x31646a(0x195)](_0x31646a(0x1c7)),
-      _0x3de18b = document[_0x31646a(0x195)](_0x31646a(0x1b0)),
-      _0x3fa8ef = document[_0x31646a(0x195)](_0x31646a(0x1c3)),
-      _0x45455b = window[_0x31646a(0x1ba)];
-    document["querySelectorAll"](_0x31646a(0x198))[_0x31646a(0x1bb)]((_0x399bc5) => {
-      const _0x4de008 = _0x31646a;
-      _0x399bc5[_0x4de008(0x19a)](_0x4de008(0x1cd), () => {
-        const _0x31bc80 = _0x4de008,
-          _0x37ccdc = _0x399bc5[_0x31bc80(0x19e)]("data-command");
-        if (_0x37ccdc === _0x31bc80(0x18f)) document["getElementById"](_0x31bc80(0x18b))["click"]();
+})(_0x31f4, 0x9d13b),
+  document[_0x117238(0x1f8)](_0x117238(0x1c7), () => {
+    const _0x3e5a6b = _0x117238,
+      _0x3674fe = document[_0x3e5a6b(0x1e2)](_0x3e5a6b(0x1de)),
+      _0x2d6655 = document[_0x3e5a6b(0x1e2)](_0x3e5a6b(0x1f4)),
+      _0x4498e9 = document[_0x3e5a6b(0x1e2)](_0x3e5a6b(0x1f1)),
+      _0x1dd6d8 = document[_0x3e5a6b(0x1e2)](_0x3e5a6b(0x1d2)),
+      _0x599135 = window["Swal"];
+    document[_0x3e5a6b(0x1ee)](_0x3e5a6b(0x1fe))["forEach"]((_0x40814b) => {
+      _0x40814b["addEventListener"]("click", () => {
+        const _0x4ece75 = _0x301a,
+          _0x27d2dd = _0x40814b[_0x4ece75(0x1d1)](_0x4ece75(0x1e7));
+        if (_0x27d2dd === _0x4ece75(0x1fb)) document[_0x4ece75(0x1e2)](_0x4ece75(0x1d5))[_0x4ece75(0x1e6)]();
         else {
-          if (_0x37ccdc === "hiliteColor") document[_0x31bc80(0x195)]("highlight-color")["click"]();
-          else _0x37ccdc["startsWith"](_0x31bc80(0x1c4)) ? (document[_0x31bc80(0x1bc)](_0x37ccdc, ![], null), _0x27d199(_0x37ccdc)) : document["execCommand"](_0x37ccdc, ![], null);
+          if (_0x27d2dd === _0x4ece75(0x1cb)) document[_0x4ece75(0x1e2)](_0x4ece75(0x1e1))["click"]();
+          else _0x27d2dd["startsWith"](_0x4ece75(0x1e9)) ? (document[_0x4ece75(0x1ce)](_0x27d2dd, ![], null), _0x498c9d(_0x27d2dd)) : document[_0x4ece75(0x1ce)](_0x27d2dd, ![], null);
         }
       });
     }),
-      document["getElementById"](_0x31646a(0x18b))[_0x31646a(0x19a)](_0x31646a(0x194), (_0x4f2736) => {
-        const _0x345884 = _0x31646a;
-        document["execCommand"](_0x345884(0x18f), ![], _0x4f2736[_0x345884(0x190)][_0x345884(0x1ad)]);
+      document[_0x3e5a6b(0x1e2)](_0x3e5a6b(0x1d5))[_0x3e5a6b(0x1f8)]("input", (_0x1ba6d3) => {
+        const _0x33c09b = _0x3e5a6b;
+        document[_0x33c09b(0x1ce)](_0x33c09b(0x1fb), ![], _0x1ba6d3[_0x33c09b(0x1fd)][_0x33c09b(0x1d9)]);
       }),
-      document[_0x31646a(0x195)](_0x31646a(0x1ae))[_0x31646a(0x19a)](_0x31646a(0x194), (_0xf4ef58) => {
-        const _0x52b60f = _0x31646a;
-        document[_0x52b60f(0x1bc)](_0x52b60f(0x1b4), ![], _0xf4ef58[_0x52b60f(0x190)][_0x52b60f(0x1ad)]);
+      document[_0x3e5a6b(0x1e2)]("highlight-color")[_0x3e5a6b(0x1f8)](_0x3e5a6b(0x1f9), (_0xef042a) => {
+        const _0x3985ca = _0x3e5a6b;
+        document[_0x3985ca(0x1ce)](_0x3985ca(0x1cb), ![], _0xef042a[_0x3985ca(0x1fd)]["value"]);
       }),
-      _0x342c74[_0x31646a(0x19a)](_0x31646a(0x1cd), _0xf66909);
-    function _0x27d199(_0x587128) {
-      const _0x1800dd = _0x31646a;
-      document[_0x1800dd(0x191)](_0x1800dd(0x196))[_0x1800dd(0x1bb)]((_0x14b1ee) => {
-        const _0x13e83c = _0x1800dd;
-        _0x14b1ee["classList"][_0x13e83c(0x1a4)](_0x13e83c(0x1a6), _0x14b1ee[_0x13e83c(0x19e)](_0x13e83c(0x1be)) === _0x587128);
+      _0x2d6655[_0x3e5a6b(0x1f8)](_0x3e5a6b(0x1e6), _0x274704);
+    function _0x498c9d(_0x582672) {
+      const _0x365b64 = _0x3e5a6b;
+      document[_0x365b64(0x1ee)](_0x365b64(0x1df))[_0x365b64(0x1d4)]((_0x3fa287) => {
+        const _0x3df7c7 = _0x365b64;
+        _0x3fa287[_0x3df7c7(0x1dd)]["toggle"](_0x3df7c7(0x1d3), _0x3fa287["getAttribute"](_0x3df7c7(0x1e7)) === _0x582672);
       });
     }
-    function _0x549e72() {
-      const _0x141e7e = _0x31646a;
-      _0x3de18b[_0x141e7e(0x1bf)]["remove"](_0x141e7e(0x1b1)), _0x342c74[_0x141e7e(0x1bf)][_0x141e7e(0x19c)](_0x141e7e(0x1b1)), (_0x29f56b[_0x141e7e(0x1aa)] = !![]), _0x29f56b[_0x141e7e(0x1b2)]();
+    function _0x1109f0() {
+      const _0x53b9d4 = _0x3e5a6b;
+      _0x4498e9[_0x53b9d4(0x1dd)][_0x53b9d4(0x1da)](_0x53b9d4(0x1e4)), _0x2d6655[_0x53b9d4(0x1dd)]["remove"]("hidden"), (_0x3674fe[_0x53b9d4(0x1cf)] = !![]), _0x3674fe["focus"]();
     }
-    function _0xf66909() {
-      const _0x2a5c89 = _0x31646a,
-        _0x3eb824 = _0x29f56b[_0x2a5c89(0x1a5)],
-        _0x29dc89 = _0x3fa8ef[_0x2a5c89(0x1ad)][_0x2a5c89(0x1a3)](),
-        _0x212c05 = document["getElementById"]("article-pin")[_0x2a5c89(0x1ad)][_0x2a5c89(0x1a3)]();
-      if (!_0x3eb824) {
-        _0x45455b[_0x2a5c89(0x1af)]({ icon: _0x2a5c89(0x1b3), title: "Oops...", text: _0x2a5c89(0x1bd) });
+    function _0x274704() {
+      const _0xa2571a = _0x3e5a6b,
+        _0x2f6c1c = _0x3674fe["innerHTML"],
+        _0x1ca88c = _0x1dd6d8[_0xa2571a(0x1d9)]["trim"](),
+        _0x2c55b9 = document[_0xa2571a(0x1e2)](_0xa2571a(0x1f2))["value"][_0xa2571a(0x1ef)](),
+        _0xabe342 = document["getElementById"](_0xa2571a(0x1ca))[_0xa2571a(0x1d9)][_0xa2571a(0x1ef)]();
+      if (!_0x2f6c1c) {
+        _0x599135[_0xa2571a(0x1f5)]({ icon: "error", title: "Oops...", text: _0xa2571a(0x1dc) });
         return;
       }
-      (_0x342c74["disabled"] = !![]),
-        (_0x342c74[_0x2a5c89(0x1a5)] = _0x2a5c89(0x1b6)),
-        fetch(_0x2a5c89(0x1c1), { method: "POST", headers: { "Content-Type": _0x2a5c89(0x1a8) }, body: JSON[_0x2a5c89(0x197)]({ content: _0x3eb824, title: _0x29dc89, pin: _0x212c05 || undefined }) })
-          [_0x2a5c89(0x192)]((_0x579499) => _0x579499[_0x2a5c89(0x199)]())
-          [_0x2a5c89(0x192)]((_0x58ea73) => {
-            const _0x438424 = _0x2a5c89;
-            if (_0x58ea73["success"])
-              _0x45455b[_0x438424(0x1af)]({
+      (_0x2d6655[_0xa2571a(0x1f3)] = !![]),
+        (_0x2d6655[_0xa2571a(0x1ff)] = _0xa2571a(0x1c5)),
+        fetch(_0xa2571a(0x1f7), {
+          method: _0xa2571a(0x1c8),
+          headers: { "Content-Type": "application/json" },
+          body: JSON[_0xa2571a(0x1d8)]({ content: _0x2f6c1c, title: _0x1ca88c, pin: _0x2c55b9 || undefined, protectPassword: _0xabe342 || undefined }),
+        })
+          ["then"]((_0x150210) => _0x150210["json"]())
+          [_0xa2571a(0x1fc)]((_0x52bda8) => {
+            const _0xb49f14 = _0xa2571a;
+            if (_0x52bda8[_0xb49f14(0x1e5)])
+              _0x599135[_0xb49f14(0x1f5)]({
                 toast: !![],
-                position: _0x438424(0x19f),
-                icon: _0x438424(0x193),
-                title: _0x438424(0x1a0),
+                position: "top-end",
+                icon: _0xb49f14(0x1e5),
+                title: _0xb49f14(0x1f6),
                 showConfirmButton: ![],
                 timer: 0x5dc,
                 timerProgressBar: !![],
-                background: "#f0fdf4",
-                iconColor: _0x438424(0x19d),
-              })[_0x438424(0x192)](() => {
-                const _0x42b128 = _0x438424;
-                window[_0x42b128(0x18c)][_0x42b128(0x1b5)] = _0x58ea73[_0x42b128(0x1ce)];
+                background: _0xb49f14(0x1e0),
+                iconColor: _0xb49f14(0x1c6),
+              })[_0xb49f14(0x1fc)](() => {
+                const _0x59d820 = _0xb49f14;
+                window["location"][_0x59d820(0x1eb)] = _0x52bda8[_0x59d820(0x1ea)];
               });
-            else throw new Error(_0x58ea73[_0x438424(0x1b3)] || _0x438424(0x1cb));
+            else throw new Error(_0x52bda8[_0xb49f14(0x1cc)] || "Failed\x20to\x20save");
           })
-          [_0x2a5c89(0x1a2)]((_0x339030) => {
-            const _0x2b1575 = _0x2a5c89;
-            console[_0x2b1575(0x1b3)](_0x2b1575(0x1a7), _0x339030),
-              _0x45455b["fire"]({
+          [_0xa2571a(0x1db)]((_0x176257) => {
+            const _0x44bcbf = _0xa2571a;
+            console[_0x44bcbf(0x1cc)](_0x44bcbf(0x1e8), _0x176257),
+              _0x599135[_0x44bcbf(0x1f5)]({
                 toast: !![],
-                position: _0x2b1575(0x19f),
-                icon: _0x2b1575(0x1b3),
-                title: _0x2b1575(0x1c6),
-                text: _0x339030[_0x2b1575(0x1a9)],
+                position: _0x44bcbf(0x1e3),
+                icon: _0x44bcbf(0x1cc),
+                title: _0x44bcbf(0x1d6),
+                text: _0x176257[_0x44bcbf(0x1cd)],
                 showConfirmButton: ![],
                 timer: 0xbb8,
                 timerProgressBar: !![],
-                background: "#fef2f2",
-                iconColor: _0x2b1575(0x189),
+                background: _0x44bcbf(0x1c2),
+                iconColor: _0x44bcbf(0x1c4),
               });
           })
-          [_0x2a5c89(0x1cc)](() => {
-            const _0x93e5b3 = _0x2a5c89;
-            (_0x342c74[_0x93e5b3(0x1c0)] = ![]), (_0x342c74[_0x93e5b3(0x1a5)] = _0x93e5b3(0x18d));
+          ["finally"](() => {
+            const _0x9a72d8 = _0xa2571a;
+            (_0x2d6655[_0x9a72d8(0x1f3)] = ![]), (_0x2d6655[_0x9a72d8(0x1ff)] = "<i\x20class=\x22fas\x20fa-save\x20mr-2\x22></i>Save");
           });
     }
-    _0x549e72();
+    _0x1109f0();
   });
